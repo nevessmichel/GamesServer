@@ -9,9 +9,13 @@ const Game = require("./models/Game");
 const GamesRoute = require("./routes/games");
 const GendersRoute = require("./routes/genders");
 
-Mongoose.connect(process.env.DB_CONNECTION, { useNewUrlParser: true }, () => {
-  console.log("connected to DB!");
-});
+Mongoose.connect(
+  process.env.DB_CONNECTION,
+  { useUnifiedTopology: true, useNewUrlParser: true },
+  () => {
+    console.log("connected to DB!");
+  }
+);
 
 const app = Express();
 
