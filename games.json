@@ -1,0 +1,8 @@
+{
+  "games": [
+    { "id": "x", "title": "y" },
+    { "id": "z", "title": "k" },
+    { "id": "d", "title": "f" }
+  ],
+  "system": { "next_id": 0 }
+}
