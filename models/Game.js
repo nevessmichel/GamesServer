@@ -30,7 +30,7 @@ const GameSchema = Mongoose.Schema({
     },
   },
   price: {
-    type: String,
+    type: Number,
   },
   image: {
     type: String,
