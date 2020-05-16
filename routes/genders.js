@@ -16,15 +16,13 @@ router.post("/add", async (req, res) => {
 
 router.post("/", async (req, res) => {
   const ids = req.body.ids;
-  console.log(ids);
   try {
     let genders;
-    if (ids === null || ids === undefined) {
+    if (ids === null || ids === undefined || ids.length === 0) {
       genders = await Gender.find();
     } else {
       genders = await Gender.find({ _id: { $in: ids } });
     }
-
     res.json({ status: 1, genders: genders });
   } catch (err) {
     res.json({ status: 0, error: err });
@@ -33,7 +31,7 @@ router.post("/", async (req, res) => {
 
 router.delete("/:id", async (req, res) => {
   try {
-    const removed = await Gender.remove({ _id: req.params.id });
+    const removed = await Gender.deleteOne({ _id: req.params.id });
     res.json({ status: 1, removed: removed });
   } catch (err) {
     res.json({ status: 0, error: err });

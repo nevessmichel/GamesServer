@@ -20,6 +20,12 @@ Mongoose.connect(
 const app = Express();
 
 app.use(Cors());
+app.use(
+  body_parser.urlencoded({
+    extended: true,
+  })
+);
+
 app.use(body_parser.json());
 app.use("/games", GamesRoute);
 app.use("/genders", GendersRoute);
